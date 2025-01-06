@@ -1,4 +1,4 @@
-﻿/*----------------------------------------------------------------------------------
+/*----------------------------------------------------------------------------------
 // Copyright 2019 Huawei Technologies Co.,Ltd.
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 // this file except in compliance with the License.  You may obtain a copy of the
@@ -122,6 +122,7 @@ namespace OBS.Internal
         public const int DefaultConnectionLimit = 1000;
         public const bool DefaultKeepAlive = true;
         public const bool DefaultAuthTypeNegotiation = true;
+        public const bool UseCustomDomain = false;
 
         public const AuthTypeEnum DefaultAuthType = AuthTypeEnum.OBS;
 
