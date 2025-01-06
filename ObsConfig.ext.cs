@@ -1,4 +1,4 @@
-﻿/*----------------------------------------------------------------------------------
+/*----------------------------------------------------------------------------------
 // Copyright 2019 Huawei Technologies Co.,Ltd.
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 // this file except in compliance with the License.  You may obtain a copy of the
@@ -33,6 +33,7 @@ namespace OBS
         private int asyncSocketTimeout = Constants.DefaultAsyncSocketTimeout;
         private bool keepAlive = Constants.DefaultKeepAlive;
         private bool authTypeNegotiation = Constants.DefaultAuthTypeNegotiation;
+        private bool useCustomDomain = Constants.UseCustomDomain;
 
         /// <summary>
         /// Whether to verify the certificate
@@ -41,6 +42,15 @@ namespace OBS
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// Whether to use a custom domain name. The default value is "false."
+        /// </summary>
+        public bool UseCustomDomain
+        {
+            get { return this.useCustomDomain; }
+            set { this.useCustomDomain = value; }
         }
 
         /// <summary>
