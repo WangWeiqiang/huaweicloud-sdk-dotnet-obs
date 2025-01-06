@@ -1,4 +1,4 @@
-﻿/*----------------------------------------------------------------------------------
+/*----------------------------------------------------------------------------------
 // Copyright 2019 Huawei Technologies Co.,Ltd.
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 // this file except in compliance with the License.  You may obtain a copy of the
@@ -82,11 +82,13 @@ namespace OBS.Internal
                 }
                 else
                 {
-                    int index = url.IndexOf("//");
-                    string prefix = url.Substring(0, index + 2);
-                    string suffix = url.Substring(index + 2);
+                    if (!UseCustomDomain) {
+                        int index = url.IndexOf("//");
+                        string prefix = url.Substring(0, index + 2);
+                        string suffix = url.Substring(index + 2);
 
-                    url = prefix + BucketName + "." + suffix;
+                        url = prefix + BucketName + "." + suffix;
+                    }
                 }
             }
 
@@ -132,6 +134,12 @@ namespace OBS.Internal
             set;
         }
 
+        public bool UseCustomDomain
+        {
+            get;
+            set;
+        }
+
         public bool AutoClose
         {
             get
@@ -152,7 +160,7 @@ namespace OBS.Internal
             {
                 host += ":" + ub.Port;
             }
-            if (!string.IsNullOrEmpty(this.BucketName) && !this.PathStyle)
+            if (!string.IsNullOrEmpty(this.BucketName) && !this.PathStyle && !this.UseCustomDomain)
             {
                 host = this.BucketName + "." + host;
             }
